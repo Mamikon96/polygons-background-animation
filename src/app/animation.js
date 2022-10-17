@@ -3,9 +3,10 @@ export class Animation {
 	points = [];
 	raf = null;
 
-	constructor(canvas) {
+	constructor(canvas, color = 'purple') {
 		this.canvas = canvas;
 		this.ctx = canvas.getContext('2d');
+		this.color = color;
 	}
 
 	run = () => {
@@ -29,7 +30,7 @@ export class Animation {
 				const startX = i + 4 * radius;
 				const startY = j + 4 * radius + (row % 2) * 100;
 				const maxDrift = 50;
-				this.points[row].push(new Point(startX, startY, radius, maxDrift, 'purple', 5));
+				this.points[row].push(new Point(startX, startY, radius, maxDrift, this.color, 5));
 			}
 		}
 	}
@@ -89,10 +90,10 @@ export class Animation {
 		ctx.beginPath();
 		ctx.moveTo(p1.x, p1.y);
 		ctx.lineTo(p2.x, p2.y);
-		ctx.fillStyle = 'purple';
+		ctx.fillStyle = this.color;
 		ctx.fill();
 		ctx.lineWidth = 3;
-		ctx.strokeStyle = 'purple';
+		ctx.strokeStyle = this.color;
 		ctx.stroke();
 	}
 

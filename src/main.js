@@ -1,7 +1,7 @@
 import { Animation } from "./app/animation.js";
 
 const canvas = document.getElementById('canvas');
-const animation = new Animation(canvas);
+const animation = new Animation(canvas, 'lawngreen');
 
 start();
 
